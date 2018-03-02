@@ -22,4 +22,12 @@
         <update id="updateStudent" parameterType="Student" >
             update student set name=#{name} where id=#{id}   
         </update>
+        <select id="listStudentByName"  parameterType="string" resultType="Student">
+            select * from   student  where name like concat('%',#{0},'%')
+            <!-- 相当于 select * form Student where name like "%name%" -->
+            <!-- #{0}代表第一个参数 -->
+        </select>     
+        <select id="listStudentByIdAndName" parameterType="MAP" resultType="Student">
+             SELECT * FROM   student  WHERE ID = #{ID}  AND NAME LIKE CONCAT('%',#{name},'%')
+       </select>
 	</mapper>
