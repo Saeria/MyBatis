@@ -9,20 +9,21 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-
-public class Test_select{
+public class Test_delete {
 
 	public static void main(String[] args) throws IOException {
 		String resource = "mybatis-config.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession session=sqlSessionFactory.openSession();
-        
+        Student s = new Student();
+        s.setId(2);
+        session.delete("deleteStudent",s);
         List<Student> cs=session.selectList("listStudent");
         for (Student c : cs) {
 			System.out.println(c.getName());
 		}
-		session.commit();
-		session.close();
+		
 	}
+
 }

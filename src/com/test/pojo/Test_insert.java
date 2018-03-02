@@ -9,20 +9,22 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-
-public class Test_select{
+public class Test_insert {
 
 	public static void main(String[] args) throws IOException {
 		String resource = "mybatis-config.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession session=sqlSessionFactory.openSession();
-        
+        Student c = new Student();
+        c.setName(" newStudent");
+        session.insert("addCategory",c);
         List<Student> cs=session.selectList("listStudent");
-        for (Student c : cs) {
-			System.out.println(c.getName());
+        for (Student s : cs) {
+			System.out.println(s.getName());
 		}
-		session.commit();
-		session.close();
+        session.commit();
+        session.close();
+		
 	}
 }

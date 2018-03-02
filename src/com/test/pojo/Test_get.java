@@ -9,8 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-
-public class Test_select{
+public class Test_get {
 
 	public static void main(String[] args) throws IOException {
 		String resource = "mybatis-config.xml";
@@ -18,11 +17,10 @@ public class Test_select{
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession session=sqlSessionFactory.openSession();
         
-        List<Student> cs=session.selectList("listStudent");
-        for (Student c : cs) {
-			System.out.println(c.getName());
-		}
-		session.commit();
-		session.close();
+       Student c= session.selectOne("getStudent",1);
+       System.out.println(c.getName());
+       session.commit();
+       session.close();
 	}
+
 }
