@@ -19,5 +19,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     </environments>
     <mappers>
         <mapper resource="com/test/pojo/Student.xml"/>
+        <mapper resource="com/test/pojo/Product.xml"/>
     </mappers>
 </configuration>

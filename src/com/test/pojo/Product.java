@@ -4,6 +4,14 @@ public class Product {
 	private int id;
 	private String name;
 	private float price;
+	private Student student;
+	
+	public Student getStudent() {
+		return student;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
 	public int getId() {
 		return id;
 	}
@@ -26,5 +34,6 @@ public class Product {
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
 	}
+	
 
 }
