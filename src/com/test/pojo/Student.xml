@@ -29,5 +29,6 @@
         </select>     
         <select id="listStudentByIdAndName" parameterType="MAP" resultType="Student">
              SELECT * FROM   student  WHERE ID = #{id}  AND NAME LIKE CONCAT('%',#{name},'%')
+             <!-- 多条件查询 -->
        </select>
 	</mapper>
