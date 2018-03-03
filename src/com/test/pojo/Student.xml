@@ -7,7 +7,6 @@
 	    <resultMap type="Student" id="StudentBean">
             <id column="cid" property="id" />
             <result column="cname" property="name" />
-     
             <!-- 一对多的关系 -->
             <!-- property: 指的是集合属性的值, ofType：指的是集合中元素的类型 -->
             <collection property="products" ofType="Product">
