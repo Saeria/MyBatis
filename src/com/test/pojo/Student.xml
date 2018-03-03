@@ -28,6 +28,6 @@
             <!-- #{0}代表第一个参数 -->
         </select>     
         <select id="listStudentByIdAndName" parameterType="MAP" resultType="Student">
-             SELECT * FROM   student  WHERE ID = #{ID}  AND NAME LIKE CONCAT('%',#{name},'%')
+             SELECT * FROM   student  WHERE ID = #{id}  AND NAME LIKE CONCAT('%',#{name},'%')
        </select>
 	</mapper>
